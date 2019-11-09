@@ -11,7 +11,6 @@ logger.add(new logger.transports.Console, {
 });
 logger.level = 'debug';
 
-
 // Initialize Discord Bot
 var bot = new Discord.Client({
    token: auth.token,
@@ -49,7 +48,6 @@ bot.on('ready', function (evt) {
 });
 
 bot.on('disconnect', function(errMsg, code) {
-    msgOp.post(bot, '629865351135363092', "Aight imma head out");
     console.log(new Date(), 'disconnected', errMsg, code);
 });
 
