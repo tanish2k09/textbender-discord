@@ -103,7 +103,7 @@ module.exports = {
         msg = msg.replace(/\s+/g, "");
         
         // Probability to add space (or tab)
-        var chance = 0;
+        var chance = 0.5;
         var tabBias = 0.8;
         
         if (cmd == 'spacew' || cmd == 'biggspacew') {
@@ -116,7 +116,7 @@ module.exports = {
         
         for (i = 0; i < msg.length;) {
             if (chance > tabBias) {
-                builder += '           ';
+                builder += '        ';
             } else if (chance > (tabBias - 0.25)) {
                 builder += '  ';
             } else {
@@ -124,7 +124,7 @@ module.exports = {
                 ++i;
             }
             
-            chance = Math.random() - ((chance - 0.5) / 10);
+            chance = Math.random();
         }
         return builder;
     },
