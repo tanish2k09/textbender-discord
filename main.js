@@ -23,6 +23,7 @@ var selfID = '629837107451527188';
 var quantumID = '328440224130793472';
 var briID = '170213128544452609';
 var retracksID = '224307245112885249';
+var devChannelID = '629865351135363092';
 
 function isAdmin(userID) {
     return (userID == quantumID) || (userID = briID);
@@ -44,7 +45,7 @@ bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
-    msgOp.post(bot, '629865351135363092', "Back alive... hopefully longer than the last time");
+    msgOp.post(bot, devChannelID, "Back alive... hopefully longer than the last time");
 });
 
 bot.on('disconnect', function(errMsg, code) {
