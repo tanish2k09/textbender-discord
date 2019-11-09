@@ -113,8 +113,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 msgOp.postF(bot, channelID, 'F');
                 break;
                 
-            case 'F':
-                msgOp.postF(bot, channelID, ':f_:');
+            case 'fs':
+                msgOp.postF(bot, channelID, '<:fs:642609686746759169>');
                 break;
                 
             case 'fuck':

@@ -1,3 +1,44 @@
+function getCommandDescriptions1() {
+    desc = ";aight - Posts a reference to the 'aight imma head out' meme\n";
+    desc += ";biggspace - Same as ;space but with more spacing probability\n";
+    desc += ";biggspacew - Same as ;spacew but with more spacing probability\n";
+    desc += ";biggspacel - Same as ;spacel but with more spacing probability\n";
+    desc += ";bruh - Declares a bruh moment by replying 'bruh' and sending a notice to the bruh-moments channel\n";
+    desc += ";f - Posts a string of 'F's shaped like F\n";
+    desc += ";fs - Posts a sequence of the server's :fs: emoji shaped like F\n";
+    desc += ";fuck - replies 'you.'\n";
+    desc += ";help mention - Send the help response to the mentioned person's DM (Needs admin access in-bot)\n";
+    desc += ";helpme - DMs you a helpful message about the bot, just like this one. I just became self-aware didn't I?\n";
+    desc += ";inv message - Inverts the message's case\n";
+    desc += ";invl - Inverts the last message's case\n";
+    desc += ";killme - A meme command that replies that I understand your situation";
+    desc += ";low message - Converts the message into lower case\n";
+    desc += ";lowl - Converts the last message into lower case\n";
+    return desc;
+}
+
+function getCommandDescriptions2() {
+    desc = ";mock message - Outputs a spongebob-mock version of message with random capped alphabets\n";
+    desc += ";mockl - Outputs a ;mock of the last message\n";
+    desc += ";mocklast - Same as ;mockl\n";
+    desc += ";muda - Sends a long MUDA string\n";
+    desc += ";nice - Sends a Nice string to the nice channel with your user tag\n";
+    desc += ";ora - Sends a long ORA string\n";
+    desc += ";ping - Outputs a string to let you know if the bot is up and active\n";
+    desc += ";quoteme message - Puts the message in the just-quotes channel (with wrapped quotation and a credit tag)\n";
+    desc += ";space message - Spreads the letters in the message apart with a probability bias (emoji and tags will not be preserved)\n";
+    desc += ";spacew message - Spreads the words in the message apart with a probability bias\n";
+    desc += ";spacel - Spreads the letters in the previous message apart with a probability bias (emoji and tags will not be preserved)\n";
+    desc += ";spam message - Spams the 'message' at max 10 times ONLY if you have dev access\n";
+    desc += ";takeabreak - Pauses all command responses unless the user is an in-bot admin (needs in-bot admin access)\n";
+    desc += ";tananana - Imitates the Illuminati sound in... text... yea idk\n";
+    desc += ";upp message - Converts the message into upper case\n";
+    desc += ";uppl - Converts the last message into upper case\n";
+    desc += ";wakeupdawg - Resumes command responses, removes the ;takeabreak effect (needs in-bot admin access\n";
+    desc += "\n\nBot built by <@!328440224130793472>";
+    return desc;
+}
+
 module.exports = {
     nonsense: function (bot, ID, userID) {
         
@@ -38,36 +79,14 @@ module.exports = {
         });
     },
 
-    getCommandDescriptions: function () {
-        desc = ";biggspace - Same as ;space but with more spacing probability\n";
-        desc += ";biggspacew - Same as ;spacew but with more spacing probability\n";
-        desc += ";biggspacel - Same as ;spacel but with more spacing probability\n";
-        desc += ";fuck - replies 'you.'\n";
-        desc += ";helpme - DMs you a helpful message about the bot, just like this one. I just became self-aware didn't I?\n";
-        desc += ";inv message - Inverts the message's case\n"
-        desc += ";invl - Inverts the last message's case\n"
-        desc += ";low message - Converts the message into lower case\n"
-        desc += ";lowl - Converts the last message into lower case\n"
-        desc += ";mock message - Outputs a spongebob-mock version of message with random capped alphabets\n";
-        desc += ";mockl - Outputs a ;mock of the last message\n";
-        desc += ";mocklast - Same as ;mockl\n";
-        desc += ";muda - Sends a long MUDA string\n";
-        desc += ";nice - Sends a Nice string to the nice channel with your user tag\n";
-        desc += ";ora - Sends a long ORA string\n";
-        desc += ";ping - Outputs a string to let you know if the bot is up and active\n";
-        desc += ";quoteme message - Puts the message in the just-quotes channel (with wrapped quotation and a credit tag)\n";
-        desc += ";spam message - Spams the 'message' at max 10 times ONLY if you have dev access\n";
-        desc += ";tananana - Imitates the Illuminati sound in... text... yea idk\n"
-        desc += ";upp message - Converts the message into upper case\n"
-        desc += ";uppl - Converts the last message into upper case\n"
-        desc += "\n\nBot built by <@!328440224130793472>";
-        return desc;
-    },
-
     helpResponder: function (bot, ID) {
         bot.sendMessage({
             to: ID,
-            message: 'Hey there! The bot command prefix is \';\'\n\nCommands (case insensitive):\n' + this.getCommandDescriptions()
+            message: 'Hey there! The bot command prefix is \';\'\n\nCommands (case insensitive):\n' + getCommandDescriptions1()
+        });
+        bot.sendMessage({
+            to: ID,
+            message: getCommandDescriptions2()
         });
     },
 
@@ -150,7 +169,7 @@ module.exports = {
     },
     
     postF: function (bot, channelID, symbol) {
-        fText = symbol.repeat(5) + '\n' + symbol.repeat(3) + ('\n' + symbol).repeat(2);
+        fText = symbol.repeat(5) + '\n' + symbol + '\n' + symbol.repeat(3) + ('\n' + symbol).repeat(2);
         this.post(bot, channelID, fText);
     },
     
