@@ -1,0 +1,11 @@
+{
+    "name": "textbender",
+    "version": "1.0.0",
+    "description": "A basic discord bot to hack text messages",
+    "main": "test.js",
+    "author": "Tanish Manku",
+    "dependencies": {
+        "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+        "winston": "^3.2.1"
+    }
+}
