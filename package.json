@@ -1,6 +1,6 @@
 {
     "name": "textbender",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A basic discord bot to hack text messages",
     "main": "main.js",
     "author": "Tanish Manku",
