@@ -85,7 +85,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         switch(cmd) {
             // Utility commands
             case 'help':
-                if (isAdmin(userID))
+                if (isAdmin(userID) && message.length > 6)
                     msgOp.sendHelp(bot, evt);
                 else
                     msgOp.helpResponder(bot, userID);
