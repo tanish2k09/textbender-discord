@@ -84,10 +84,12 @@ module.exports = {
             to: ID,
             message: 'Hey there! The bot command prefix is \';\'\n\nCommands (case insensitive):\n' + getCommandDescriptions1()
         });
-        bot.sendMessage({
-            to: ID,
-            message: getCommandDescriptions2()
-        });
+        setTimeout(function() {
+            bot.sendMessage({
+                to: ID,
+                message: getCommandDescriptions2()
+            });
+        }, 500);
     },
 
     getCmd: function (message) {
