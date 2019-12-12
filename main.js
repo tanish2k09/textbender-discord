@@ -45,7 +45,6 @@ bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
-    msgOp.post(bot, devChannelID, "Back alive... hopefully longer than the last time");
 });
 
 bot.on('disconnect', function(errMsg, code) {
@@ -74,7 +73,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         }
 
         // Blacklist retrack if annoying, handle that here
-        if (blacklistRetrack && isAdmin(userID)) {
+        if (blacklistRetrack && userID == retracksID) {
             msgOp.blacklisted(bot, channelID, userID);
             return;
         }
@@ -147,6 +146,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 
             case 'tananana':
                 msgOp.post(bot, channelID, "-*gasps*- Tu doo doo - doo du doo");
+                break;
+                
+            case 'ogreattreegivewisdom':
+                msgOp.post(bot, channelID, "My wisdom is only pure and simple: <@!" + retracksID + "> is gay primus OG");
+                break;
+                
+            case '-;':
+            case '_;':
+                // Do nothing
                 break;
                 
             // Text's kitchen commands
