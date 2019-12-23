@@ -1,6 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+var ids = require('./id.json');
 var msgOp = require('./helpers/msgOps.js');
 var bend = require('./helpers/bender.js');
 
@@ -19,11 +20,12 @@ var bot = new Discord.Client({
 
 var blacklistRetrack = false;
 var actDumb = false;
-var selfID = '629837107451527188';
-var quantumID = '328440224130793472';
-var briID = '170213128544452609';
-var retracksID = '224307245112885249';
-var devChannelID = '629865351135363092';
+var selfID = ids.selfID;
+var quantumID = ids.quantumID;
+var briID = ids.briID;
+var retracksID = ids.retracksID;
+var devChannelID = ids.devChannelID;
+var bebeID = ids.bebeID;
 
 function isAdmin(userID) {
     return (userID == quantumID) || (userID = briID);
@@ -149,7 +151,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 break;
                 
             case 'ogreattreegivewisdom':
-                msgOp.post(bot, channelID, "My wisdom is only pure and simple: <@!" + retracksID + "> is gay primus OG");
+				if (userID == bebeID)
+					msgOp.post(bot, channelID, "My wisdom is only pure and simple: <@!" + retracksID + "> is gay primus OG");
+				else
+					msgOp.post(bot, channelID, "The presence of a sincere spirit is necessary to draw the wisdom, child");
                 break;
                 
             case '-;':
