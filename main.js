@@ -1,9 +1,10 @@
-var Discord = require('discord.io');
-var logger = require('winston');
-var auth = require('./auth.json');
-var ids = require('./id.json');
-var msgOp = require('./helpers/msgOps.js');
-var bend = require('./helpers/bender.js');
+const Discord = require('discord.io');
+const logger = require('winston');
+const auth = require('./auth.json');
+const ids = require('./id.json');
+const msgOp = require('./helpers/msgOps.js');
+const bend = require('./helpers/bender.js');
+const runs = require('./helpers/runs.js');
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -20,12 +21,12 @@ var bot = new Discord.Client({
 
 var blacklistRetrack = false;
 var actDumb = false;
-var selfID = ids.selfID;
-var quantumID = ids.quantumID;
-var briID = ids.briID;
-var retracksID = ids.retracksID;
-var devChannelID = ids.devChannelID;
-var bebeID = ids.bebeID;
+const selfID = ids.selfID;
+const quantumID = ids.quantumID;
+const briID = ids.briID;
+const retracksID = ids.retracksID;
+const devChannelID = ids.devChannelID;
+const bebeID = ids.bebeID;
 
 function isAdmin(userID) {
     return (userID == quantumID) || (userID = briID);
@@ -156,7 +157,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				else
 					msgOp.post(bot, channelID, "The presence of a sincere spirit is necessary to draw the wisdom, child");
                 break;
-                
+				
+			case 'run':
+			case 'runs':
+				msgOp.post(bot, channelID, runs.getRandRunMsg());
+				break;
+				
             case '-;':
             case '_;':
                 // Do nothing
