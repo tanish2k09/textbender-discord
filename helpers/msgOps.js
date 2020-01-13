@@ -187,7 +187,11 @@ module.exports = {
 
 		this.helpResponder(bot, userID);
 	},
-    
+
+    postZeroWidthSpace: function (bot, channelID) {
+        this.post(bot, channelID, "\u{E0020}");
+    },
+
 	postMsgSpaced: function (bot, channelID, bender, cmd, msg) {
 		message = this.getArg(msg, cmd.length + 1);
 		if (message == null)
