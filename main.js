@@ -161,6 +161,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				msgOp.post(bot, channelID, runs.getRandRunMsg());
 				break;
 
+            case 'zwsp':
+                msgOp.postZeroWidthSpace(bot, channelID)
+                break;
+
 			case 'vibecheck':
 				msgOp.post(bot, channelID, "Initiating vibe check...");
 				setTimeout(msgOp.post, 2000, bot, channelID, msgOp.getVibeRes(userID));

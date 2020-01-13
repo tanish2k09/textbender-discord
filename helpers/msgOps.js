@@ -188,6 +188,10 @@ module.exports = {
 		this.helpResponder(bot, userID);
 	},
 
+    postZeroWidthSpace: function (bot, channelID) {
+        this.post(bot, channelID, "\u{E0020}");
+    },
+
 	postMsgSpaced: function (bot, channelID, bender, cmd, msg) {
 		message = this.getArg(msg, cmd.length + 1);
 		if (message == null)
@@ -210,8 +214,8 @@ module.exports = {
 	getVibeRes: function (userID) {
 		vibeNum = Math.floor(Math.random() * 2);
 		if (vibeNum)
-			return "<@!" + userID + "> has passed the vibe check";
+			return "<@!" + userID + "> has passed the vibe check. Continue vibing good sir.";
 		else
-			return "<@!" + userID + "> has failed the vibe check";
+			return "<@!" + userID + "> has failed the vibe check. Show me your vibing license!";
 	}
 };
